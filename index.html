@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CV ดร. นพดล สีสุข - อาจารย์ประจำสาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยราชภัฏพิบูลสงคราม">
+    <title>ดร. นพดล สีสุข | CV</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --bg: #0a0e1a;
+            --card: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #e2e8f0;
+            --muted: #64748b;
+            --accent: #818cf8;
+            --accent2: #f472b6;
+            --accent3: #38bdf8;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Sarabun', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden
+        }
+
+        /* Glow blobs */
+        .glow {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: .25;
+            pointer-events: none;
+            z-index: 0
+        }
+
+        .glow-1 {
+            width: 500px;
+            height: 500px;
+            top: -100px;
+            left: -100px;
+            background: var(--accent)
+        }
+
+        .glow-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -80px;
+            right: -80px;
+            background: var(--accent2)
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 16px 0;
+            backdrop-filter: blur(16px);
+            background: rgba(10, 14, 26, .75);
+            border-bottom: 1px solid var(--border);
+            transition: .3s
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .nav-logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: .9rem;
+            font-weight: 600;
+            transition: .3s;
+            text-decoration: none
+        }
+
+        .nav-links a:hover {
+            color: #fff
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+            align-items: center
+        }
+
+        .hero-photo {
+            position: relative
+        }
+
+        .hero-photo img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 60px rgba(129, 140, 248, .25)
+        }
+
+        .hero-photo .ring {
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            border: 2px dashed rgba(129, 140, 248, .3);
+            animation: spin 20s linear infinite
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 50px;
+            background: rgba(129, 140, 248, .12);
+            border: 1px solid rgba(129, 140, 248, .25);
+            color: var(--accent);
+            font-size: .85rem;
+            font-weight: 600;
+            margin-bottom: 20px
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 4vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 6px
+        }
+
+        .hero h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            color: var(--muted);
+            font-weight: 400;
+            margin-bottom: 20px
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 540px;
+            font-size: 1.05rem;
+            margin-bottom: 28px
+        }
+
+        .hero-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px
+        }
+
+        .hero-contact a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: .9rem;
+            font-weight: 600;
+            transition: .3s;
+            text-decoration: none
+        }
+
+        .contact-primary {
+            background: linear-gradient(135deg, var(--accent), #6366f1);
+            color: #fff
+        }
+
+        .contact-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, .35)
+        }
+
+        .contact-secondary {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text)
+        }
+
+        .contact-secondary:hover {
+            background: rgba(255, 255, 255, .08);
+            transform: translateY(-2px)
+        }
+
+        /* Section */
+        section {
+            padding: 80px 0
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px
+        }
+
+        .section-title span {
+            background: linear-gradient(135deg, #fff, var(--muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .section-sub {
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 50px;
+            font-size: 1rem
+        }
+
+        /* Education */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px
+        }
+
+        .edu-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: .3s
+        }
+
+        .edu-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(129, 140, 248, .3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, .3)
+        }
+
+        .edu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            opacity: 0;
+            transition: .3s
+        }
+
+        .edu-card:hover::before {
+            opacity: 1
+        }
+
+        .edu-card .degree {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            color: #fff
+        }
+
+        .edu-card .field {
+            color: var(--accent);
+            font-size: .9rem;
+            font-weight: 600;
+            margin-bottom: 8px
+        }
+
+        .edu-card .school {
+            color: var(--muted);
+            font-size: .9rem
+        }
+
+        /* Expertise */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px
+        }
+
+        .exp-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: .4s cubic-bezier(.175, .885, .32, 1.275)
+        }
+
+        .exp-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .3);
+            border-color: rgba(129, 140, 248, .25)
+        }
+
+        .exp-card i {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block
+        }
+
+        .exp-card:nth-child(1) i {
+            color: var(--accent)
+        }
+
+        .exp-card:nth-child(2) i {
+            color: var(--accent2)
+        }
+
+        .exp-card:nth-child(3) i {
+            color: var(--accent3)
+        }
+
+        .exp-card:nth-child(4) i {
+            color: #a78bfa
+        }
+
+        .exp-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #fff
+        }
+
+        .exp-card p {
+            color: var(--muted);
+            font-size: .9rem;
+            line-height: 1.6
+        }
+
+        /* Innovations */
+        .inno-list {
+            display: grid;
+            gap: 16px
+        }
+
+        .inno-item {
+            display: flex;
+            gap: 20px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px 28px;
+            transition: .3s
+        }
+
+        .inno-item:hover {
+            background: rgba(255, 255, 255, .06);
+            transform: translateX(6px)
+        }
+
+        .inno-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.3rem
+        }
+
+        .inno-item:nth-child(1) .inno-icon {
+            background: rgba(244, 114, 182, .12);
+            color: var(--accent2)
+        }
+
+        .inno-item:nth-child(2) .inno-icon {
+            background: rgba(56, 189, 248, .12);
+            color: var(--accent3)
+        }
+
+        .inno-item:nth-child(3) .inno-icon {
+            background: rgba(167, 139, 250, .12);
+            color: #a78bfa
+        }
+
+        .inno-item:nth-child(4) .inno-icon {
+            background: rgba(129, 140, 248, .12);
+            color: var(--accent)
+        }
+
+        .inno-item:nth-child(5) .inno-icon {
+            background: rgba(74, 222, 128, .12);
+            color: #4ade80
+        }
+
+        .inno-item:nth-child(6) .inno-icon {
+            background: rgba(251, 191, 36, .12);
+            color: #fbbf24
+        }
+
+        .inno-item:nth-child(7) .inno-icon {
+            background: rgba(244, 114, 182, .12);
+            color: var(--accent2)
+        }
+
+        .inno-info h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 4px;
+            color: #fff
+        }
+
+        .inno-tag {
+            display: inline-block;
+            font-size: .75rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+            background: rgba(129, 140, 248, .12);
+            color: var(--accent);
+            font-weight: 600;
+            margin-right: 6px
+        }
+
+        .inno-info p {
+            color: var(--muted);
+            font-size: .85rem;
+            margin-top: 4px
+        }
+
+        /* Research Timeline */
+        .timeline {
+            max-width: 750px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 40px
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border)
+        }
+
+        .tl-item {
+            position: relative;
+            margin-bottom: 32px
+        }
+
+        .tl-item:last-child {
+            margin-bottom: 0
+        }
+
+        .tl-dot {
+            position: absolute;
+            left: -34px;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 3px solid var(--accent);
+            transition: .3s
+        }
+
+        .tl-item:hover .tl-dot {
+            background: var(--accent);
+            box-shadow: 0 0 12px var(--accent)
+        }
+
+        .tl-item h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            color: #fff;
+            margin-bottom: 4px
+        }
+
+        .tl-meta {
+            color: var(--accent3);
+            font-size: .85rem;
+            font-weight: 600;
+            margin-bottom: 6px
+        }
+
+        .tl-item p {
+            color: var(--muted);
+            font-size: .9rem
+        }
+
+        /* Roles */
+        .roles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px
+        }
+
+        .role-item {
+            display: flex;
+            gap: 14px;
+            padding: 24px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: .3s
+        }
+
+        .role-item:hover {
+            border-color: rgba(129, 140, 248, .3);
+            transform: translateY(-4px)
+        }
+
+        .role-item i.fa-check-circle {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-top: 3px;
+            flex-shrink: 0
+        }
+
+        .role-item strong {
+            display: block;
+            font-family: 'Outfit', sans-serif;
+            font-size: .95rem;
+            color: #fff;
+            margin-bottom: 4px
+        }
+
+        .role-item p {
+            color: var(--muted);
+            font-size: .85rem;
+            margin: 0
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: .85rem
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 8px
+        }
+
+        footer a:hover {
+            color: #fff
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px
+            }
+
+            .hero-photo {
+                display: flex;
+                justify-content: center
+            }
+
+            .hero-photo img {
+                width: 180px;
+                height: 180px
+            }
+
+            .hero-contact {
+                justify-content: center
+            }
+
+            .edu-grid {
+                grid-template-columns: 1fr
+            }
+
+            .roles-grid {
+                grid-template-columns: 1fr
+            }
+
+            .nav-links {
+                display: none
+            }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <!-- Nav -->
+    <nav>
+        <div class="container">
+            <div class="nav-logo">Dr. Noppadon</div>
+            <ul class="nav-links">
+                <li><a href="#about">เกี่ยวกับ</a></li>
+                <li><a href="#education">การศึกษา</a></li>
+                <li><a href="#expertise">ความเชี่ยวชาญ</a></li>
+                <li><a href="#innovations">นวัตกรรม</a></li>
+                <li><a href="#research">งานวิจัย</a></li>
+                <li><a href="#roles">บทบาท</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-photo">
+                    <div class="ring"></div>
+                    <img src="profile.png" alt="ดร. นพดล สีสุข">
+                </div>
+                <div>
+                    <div class="hero-badge"><i class="fas fa-graduation-cap"></i>&nbsp; Computer Engineering Educator
+                        &amp; Innovator</div>
+                    <h1>ดร. นพดล สีสุข</h1>
+                    <h2>Dr. Noppadon Sisuk</h2>
+                    <p>อาจารย์ประจำสาขาวิชาวิศวกรรมคอมพิวเตอร์ คณะเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยราชภัฏพิบูลสงคราม
+                        ผู้เชี่ยวชาญด้าน Embedded Systems, IoT, Signal Processing และ Medical Devices</p>
+                    <div class="hero-contact">
+                        <a href="mailto:noppadon.s@psru.ac.th" class="contact-primary"><i class="fas fa-envelope"></i>
+                            noppadon.s@psru.ac.th</a>
+                        <a href="tel:055267000" class="contact-secondary"><i class="fas fa-phone"></i> 055-267-000</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title reveal"><span>ประวัติการศึกษา</span></h2>
+            <p class="section-sub reveal">สำเร็จการศึกษาจากมหาวิทยาลัยนเรศวร ภาคเหนือตอนล่าง</p>
+            <div class="edu-grid">
+                <div class="edu-card reveal">
+                    <div class="degree">ปริญญาเอก (ปร.ด.)</div>
+                    <div class="field">ฟิสิกส์ประยุกต์</div>
+                    <div class="school">มหาวิทยาลัยนเรศวร · 2562</div>
+                </div>
+                <div class="edu-card reveal">
+                    <div class="degree">ปริญญาโท (วท.ม.)</div>
+                    <div class="field">ฟิสิกส์ประยุกต์</div>
+                    <div class="school">มหาวิทยาลัยนเรศวร · 2556</div>
+                </div>
+                <div class="edu-card reveal">
+                    <div class="degree">ปริญญาตรี (วท.บ.)</div>
+                    <div class="field">ฟิสิกส์ประยุกต์</div>
+                    <div class="school">มหาวิทยาลัยนเรศวร · 2553</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise">
+        <div class="container">
+            <h2 class="section-title reveal"><span>ความเชี่ยวชาญทางเทคนิค</span></h2>
+            <p class="section-sub reveal">บูรณาการฟิสิกส์ประยุกต์เข้ากับวิศวกรรมคอมพิวเตอร์</p>
+            <div class="expertise-grid">
+                <div class="exp-card reveal"><i class="fas fa-microchip"></i>
+                    <h3>Embedded &amp; IoT</h3>
+                    <p>ออกแบบฮาร์ดแวร์ เฟิร์มแวร์ และโปรโตคอลไร้สายระดับอุตสาหกรรม สำหรับระบบตรวจวัดอัตโนมัติ</p>
+                </div>
+                <div class="exp-card reveal"><i class="fas fa-wave-square"></i>
+                    <h3>Signal Processing</h3>
+                    <p>DSP, Phase-Locked Loop (PLL) และการวิเคราะห์สัญญาณเพื่อการวัดความแม่นยำสูง</p>
+                </div>
+                <div class="exp-card reveal"><i class="fas fa-bolt"></i>
+                    <h3>Circuit Design</h3>
+                    <p>วงจรอะนาล็อก/ดิจิทัล, Sinusoidal Oscillator using CFOAs และระบบควบคุมมอเตอร์</p>
+                </div>
+                <div class="exp-card reveal"><i class="fas fa-heartbeat"></i>
+                    <h3>Medical Devices</h3>
+                    <p>อุปกรณ์ทางการแพทย์มาตรฐานสูง เช่น เครื่องวัดออกซิเจนในเลือด สำหรับเครื่องหัวใจและปอดเทียม</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovations -->
+    <section id="innovations">
+        <div class="container">
+            <h2 class="section-title reveal"><span>นวัตกรรมและสิทธิบัตร</span></h2>
+            <p class="section-sub reveal">ทรัพย์สินทางปัญญาที่ตอบโจทย์สังคมอย่างเป็นรูปธรรม</p>
+            <div class="inno-list">
+                <div class="inno-item reveal">
+                    <div class="inno-icon"><i class="fas fa-stethoscope"></i></div>
+                    <div class="inno-info">
+                        <h4>เครื่องตรวจวัดความอิ่มตัวออกซิเจนในเลือด</h4><span class="inno-tag">Optical
+                            Sensing</span><span class="inno-tag">Medical DSP</span>
+                        <p>สำหรับเครื่องหัวใจและปอดเทียม ใช้ในห้องศัลยกรรมหัวใจ</p>
+                    </div>
+                </div>
+                <div class="inno-item reveal">
+                    <div class="inno-icon"><i class="fas fa-seedling"></i></div>
+                    <div class="inno-info">
+                        <h4>เครื่องวัดความเข้มข้นธาตุอาหารพืชแบบเรียลไทม์</h4><span class="inno-tag">IoT</span><span
+                            class="inno-tag">Electrochemical</span>
+                        <p>สนับสนุนเกษตรกรในระบบไฮโดรโปนิกส์</p>
+                    </div>
+                </div>
+                <div class="inno-item reveal">
+                    <div class="inno-icon"><i class="fas fa-eye-slash"></i></div>
+                    <div class="inno-info">
+                        <h4>หมวกเตือนสิ่งกีดขวางระดับศีรษะสำหรับคนตาบอด</h4><span
+                            class="inno-tag">Ultrasonic</span><span class="inno-tag">Haptic Feedback</span>
+                        <p>อุปกรณ์ช่วยเหลือผู้พิการทางการมองเห็น</p>
+                    </div>
+                </div>
+                <div class="inno-item reveal">
+                    <div class="inno-icon"><i class="fas fa-golf-ball"></i></div>
+                    <div class="inno-info">
+                        <h4>อุปกรณ์ตรวจหาด้านแข็งของก้านไม้กอล์ฟ</h4><span class="inno-tag">Computer Vision</span><span
+                            class="inno-tag">Pixy Module</span>
+                        <p>Appropriate Technology สำหรับนักกีฬาและผู้ออกแบบอุปกรณ์กีฬา</p>
+                    </div>
+                </div>
+                <div class="inno-item reveal">
+                    <div class="inno-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="inno-info">
+                        <h4>ชุดทดลองการเคลื่อนที่แบบวงกลม (มอเตอร์ควบคุมรอบ)</h4><span class="inno-tag">Precision
+                            Control</span><span class="inno-tag">EdTech</span>
+                        <p>สื่อการสอนฟิสิกส์สำหรับนักศึกษา</p>
+                    </div>
+                </div>
+                <div class="inno-item reveal">
+                    <div class="inno-icon"><i class="fas fa-qrcode"></i></div>
+                    <div class="inno-info">
+                        <h4>แท่นวางโทรศัพท์อ่านบาร์โค้ด 2 มิติ (สลากกินแบ่ง)</h4><span class="inno-tag">Ergonomic
+                            Design</span>
+                        <p>ช่วยเหลือผู้พิการหรือผู้จำหน่ายสลาก</p>
+                    </div>
+                </div>
+                <div class="inno-item reveal">
+                    <div class="inno-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="inno-info">
+                        <h4>ชุดตรวจวัดค่าคงที่ความหน่วง Oscillator ทางกลศาสตร์</h4><span class="inno-tag">Dynamic
+                            Sensing</span><span class="inno-tag">Data Logging</span>
+                        <p>สำหรับการเรียนการสอนฟิสิกส์ระดับสูง</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+        <div class="container">
+            <h2 class="section-title reveal"><span>ผลงานวิจัยที่คัดสรร</span></h2>
+            <p class="section-sub reveal">ตีพิมพ์ในวารสารนานาชาติและนำเสนอในเวทีระดับโลก</p>
+            <div class="timeline">
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <h3>Voltage Controlled Amplitude Sinusoidal Oscillator using CFOAs</h3>
+                    <div class="tl-meta">Int'l Review of Electrical Engineering (I.R.E.E.) · 2025</div>
+                    <p>พื้นฐานอิเล็กทรอนิกส์กำลังและระบบสื่อสาร 5G/6G</p>
+                </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <h3>PLL Circuit in Running Frequency Mode for Capacitance-to-Voltage Conversion</h3>
+                    <div class="tl-meta">iEECON 2025 · IEEE</div>
+                    <p>วงจรแปลงค่าความจุไฟฟ้าเป็นแรงดันเพื่อวัดความชื้นข้าวเปลือก</p>
+                </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <h3>Embedded Exercise Posture Prediction for Office Syndrome (ML)</h3>
+                    <div class="tl-meta">ICIC Express Letters · 2024</div>
+                    <p>ระบบทำนายท่าทางออกกำลังกายด้วย Machine Learning และ Wearable Sensors</p>
+                </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <h3>Wearable Fall Detection System Using ML and IoT for the Elderly</h3>
+                    <div class="tl-meta">ICIC Express Letters · 2023</div>
+                    <p>ระบบตรวจจับการหกล้มผู้สูงอายุแบบสวมใส่ด้วย IoT</p>
+                </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <h3>Studying Cardiac Electrophysiology via EPSSIM</h3>
+                    <div class="tl-meta">JCSSE 2023 · IEEE</div>
+                    <p>การจำลองสัญญาณไฟฟ้าหัวใจ Wolff-Parkinson-White (WPW)</p>
+                </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <h3>Automatic Blood Pressure for Wearable Health Monitoring Using IoT</h3>
+                    <div class="tl-meta">ICIC Express Letters · 2021</div>
+                    <p>ระบบวัดความดันโลหิตอัตโนมัติแบบ IoT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roles -->
+    <section id="roles">
+        <div class="container">
+            <h2 class="section-title reveal"><span>บทบาทและการบริการวิชาการ</span></h2>
+            <p class="section-sub reveal">ภารกิจด้านการสอน การประกันคุณภาพ และการบริการสังคม</p>
+            <div class="roles-grid">
+                <div class="role-item reveal"><i class="fas fa-check-circle"></i>
+                    <div><strong>ผู้ประเมินคุณภาพการศึกษา AUN-QA V4</strong>
+                        <p>CUPT Internal Program Assessor ระดับหลักสูตร ตามเกณฑ์อาเซียน</p>
+                    </div>
+                </div>
+                <div class="role-item reveal"><i class="fas fa-check-circle"></i>
+                    <div><strong>ผู้เชี่ยวชาญ คลินิกเทคโนโลยี (อว.)</strong>
+                        <p>ให้คำปรึกษาด้านการออกแบบวงจรไฟฟ้าและเครื่องมือวัดแก่อุตสาหกรรม</p>
+                    </div>
+                </div>
+                <div class="role-item reveal"><i class="fas fa-check-circle"></i>
+                    <div><strong>ผู้นำ "วิศวกรสังคม" (Social Engineer)</strong>
+                        <p>บูรณาการ Soft Skills และนวัตกรรมเพื่อสังคมในหลักสูตร</p>
+                    </div>
+                </div>
+                <div class="role-item reveal"><i class="fas fa-check-circle"></i>
+                    <div><strong>ผู้สอนเทคโนโลยีล้ำสมัย</strong>
+                        <p>Blockchain, Prompt Engineering, AI และ Cybersecurity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Dr. Noppadon Sisuk · สาขาวิศวกรรมคอมพิวเตอร์ คณะเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยราชภัฏพิบูลสงคราม
+            </p>
+            <p style="margin-top:8px">
+                <a href="mailto:noppadon.s@psru.ac.th"><i class="fas fa-envelope"></i></a>
+                <a href="https://expert.psru.ac.th" target="_blank"><i class="fas fa-globe"></i></a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) window.scrollTo({ top: t.offsetTop - 70, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+
+</html>
